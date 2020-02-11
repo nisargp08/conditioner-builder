@@ -1,8 +1,91 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+//Variables
+$border-color: #ed6c44;
+* {
+    font-size: 26px;
+}
+html,
+body {
+    background-color: grey;
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+.main-container {
+    text-align: center;
+    margin-top: 40px;
+}
+/* purple theme */
+.box.box-purple {
+    border-top-color: $border-color;
+}
+
+.box.box-solid.box-purple {
+    border: 1px solid $border-color;
+}
+
+.box.box-solid.box-purple > .box-header {
+    color: #fff;
+    background-color: $border-color;
+}
+
+.skin-purple .main-header .navbar {
+    background-color: $border-color;
+}
+
+.btn-purple-outline {
+    color: $border-color;
+    background-color: transparent;
+    background-image: none;
+    border-color: $border-color;
+}
+
+.btn-purple,
+.btn-purple-outline:hover,
+.btn-purple-outline:active,
+.btn-purple-outline:focus,
+.btn-purple-outline-focus {
+    color: #fff;
+    background-color: $border-color;
+    border-color: $border-color;
+}
+
+.btn-purple:hover,
+.btn-purple:active,
+.btn-purple:focus {
+    color: #fff;
+    background-color: $border-color;
+    border-color: $border-color;
+}
+
+.btn-radius {
+    border-radius: 11px;
+}
+
+.btn-purple-round {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+}
+.btn-cancel {
+    float: left;
+    margin-top: 2px;
+    padding: 0px;
+}
+.initial-rule-card {
+    margin-top: 6%;
+    margin-left: 5%;
+}
+.rule-card {
+    margin-left: 5%;
+}
