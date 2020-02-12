@@ -10890,8 +10890,6 @@ a.text-dark:focus {
 
 html,
 body {
-  background-color: grey;
-  color: #ffffff;
   font-family: "Nunito", sans-serif;
   font-weight: 200;
   height: 100vh;
@@ -10959,7 +10957,7 @@ body {
 
 .btn-cancel {
   float: left;
-  margin-top: 2px;
+  margin-top: 3px;
   padding: 0px;
 }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="boxContainer">
-    <div class="and-or-template col-xs-12 and-or-first">
+    <div class="and-or-template col-xs-12" v-bind:class="isFirst ? 'and-or-first' : ''">
       <div class="form-group and-or-top col-xs-12">
-        <div class="col-xs-5 text-left" style="padding: 0">
+        <div class="col-xs-5" style="padding: 0">
           <button class="btn btn-xs btn-purple-outline btn-radius">&nbsp;And&nbsp;</button>
           <button class="btn btn-xs btn-purple-outline btn-radius">&nbsp;Or&nbsp;</button>
         </div>
@@ -15,7 +15,14 @@
         </div>
       </div>
       <!-- Rule Starts -->
-      <Rule></Rule>
+      <Rule v-for="(rule,index) in rules" ref="rules" :key="rule" v-bind:options="options"></Rule>
+      <Box
+        class="and-or-offset col-xs-11"
+        v-for="(group, index) in groups"
+        ref="groups"
+        :options="options"
+        :key="group"
+      ></Box>
     </div>
   </div>
 </template>
@@ -23,9 +30,55 @@
 import Rule from "./Rule.vue";
 
 export default {
+  // Rule - if conditions
+  //Group - Nested condition boxes
+
   name: "Box",
   components: {
     Rule
+  },
+  created() {
+    this.addRule();
+  },
+  //Passed property values from the previous component -- in our case App.Vue
+  props: {
+    options: {
+      type: Object,
+      required: true
+    },
+    isFirst: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      //Storing is/isnot condition
+      rules: [],
+      //Storing nested groups
+      groups: [],
+      //To keep track if logical gate 'AND' is selected or not -- By default set to true
+      isAnd: true
+    };
+  },
+  methods: {
+    addRule() {
+      //Generating unique random id
+      var id = this.generateId();
+      //Adding a new rule to the array
+      this.rules.push(id);
+    },
+    addGroup() {
+      var id = this.generateId();
+      this.groups.push(id);
+    },
+    generateId() {
+      return "xxxxxxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+        var r = (Math.random() * 16) | 0,
+          v = c == "x" ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+      });
+    }
   }
 };
 </script>
@@ -36,7 +89,8 @@ export default {
   --node-color: lightgrey;
 }
 .and-or-template {
-  padding: 10px;
+  /* padding: 10px; */
+  padding: 8px;
   position: relative;
   border-radius: 3px;
   border: 1px solid var(--border-color);
@@ -55,12 +109,16 @@ export default {
   left: -17px;
   width: 16px;
   height: calc(50% + 18px);
+  /* left: -36px;
+  width: 35px;
+  height: calc(50% + 32px); */
   border-color: var(--node-color);
   border-style: solid;
 }
 
 .and-or-template:before {
-  top: -10px;
+  top: -18px;
+  /* top: -32px; */
   border-width: 0 0 2px 2px;
 }
 

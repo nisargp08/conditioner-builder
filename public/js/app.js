@@ -1917,11 +1917,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+// Rule - if conditions
+//Group - Nested condition boxes
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
   components: {
     Box: _Box_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      //Dropdown field values object
+      options: {
+        firstSelector: [{
+          id: 1,
+          name: "Name"
+        }, {
+          id: 2,
+          name: "Age"
+        }, {
+          id: 3,
+          name: "Phone"
+        }, {
+          id: 4,
+          name: "Email"
+        }, {
+          id: 5,
+          name: "Password"
+        }],
+        operator: [{
+          id: "is",
+          name: "is"
+        }, {
+          id: "isnot",
+          name: "is not"
+        }],
+        secondSelector: [{
+          id: 6,
+          name: "Name Tester"
+        }, {
+          id: 7,
+          name: "Age Tester"
+        }, {
+          id: 8,
+          name: "Phone Tester"
+        }, {
+          id: 9,
+          name: "Email Tester"
+        }, {
+          id: 10,
+          name: "Password Tester"
+        }]
+      },
+      //Indicates if the div is first group or not
+      isFirst: true
+    };
+  },
+  mounted: function mounted() {
+    //Calling Initi function to display by default condition when the componets gets mounted
+    this.$nextTick(function () {
+      this.init();
+    });
+  },
+  methods: {
+    init: function init() {
+      this.$refs.box.addRule();
+      this.$refs.box.addGroup();
+      this.$refs.box.addGroup();
+    }
   }
 });
 
@@ -1958,11 +2021,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  // Rule - if conditions
+  //Group - Nested condition boxes
   name: "Box",
   components: {
     Rule: _Rule_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    this.addRule();
+  },
+  //Passed property values from the previous component -- in our case App.Vue
+  props: {
+    options: {
+      type: Object,
+      required: true
+    },
+    isFirst: {
+      type: Boolean,
+      "default": false
+    }
+  },
+  data: function data() {
+    return {
+      //Storing is/isnot condition
+      rules: [],
+      //Storing nested groups
+      groups: [],
+      //To keep track if logical gate 'AND' is selected or not -- By default set to true
+      isAnd: true
+    };
+  },
+  methods: {
+    addRule: function addRule() {
+      //Generating unique random id
+      var id = this.generateId(); //Adding a new rule to the array
+
+      this.rules.push(id);
+    },
+    addGroup: function addGroup() {
+      var id = this.generateId();
+      this.groups.push(id);
+    },
+    generateId: function generateId() {
+      return "xxxxxxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0,
+            v = c == "x" ? r : r & 0x3 | 0x8;
+        return v.toString(16);
+      });
+    }
   }
 });
 
@@ -2122,7 +2237,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// Rule - if conditions
+//Group - Nested condition boxes
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "rule",
+  props: ["options"],
+  methods: {
+    deleteSelf: function deleteSelf() {
+      this.$emit("delete-rule");
+    }
+  }
+});
 
 /***/ }),
 
@@ -6657,6 +6817,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nbody {\r\n  background: linear-gradient(\r\n    to left bottom,\r\n    rgb(125, 148, 175) 0%,\r\n    rgb(230, 111, 31) 100%\r\n  );\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Box.vue?vue&type=style&index=0&lang=css&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Box.vue?vue&type=style&index=0&lang=css& ***!
@@ -6669,7 +6848,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: lightgrey;\n}\n.and-or-template {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -17px;\r\n  width: 16px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\n.and-or-template:before {\r\n  top: -10px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-template:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-template:last-child:after {\r\n  border: none;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: lightgrey;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -17px;\r\n  width: 16px;\r\n  height: calc(50% + 18px);\r\n  /* left: -36px;\r\n  width: 35px;\r\n  height: calc(50% + 32px); */\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\n.and-or-template:before {\r\n  top: -18px;\r\n  /* top: -32px; */\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-template:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-template:last-child:after {\r\n  border: none;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\r\n", ""]);
 
 // exports
 
@@ -6688,7 +6867,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --node-color: grey;\n}\n.and-or-rule {\r\n  position: relative;\r\n  height: 30px;\r\n  margin-left: 15px !important;\r\n  padding-left: 0;\n}\n.and-or-rule:before,\r\n.and-or-rule:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -1px;\r\n  width: 16px;\r\n  height: calc(50% + 15px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\n.and-or-rule:before {\r\n  top: -15px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-rule:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-rule:last-child:after {\r\n  border: none;\n}\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --node-color: grey;\n}\n.and-or-rule {\r\n  position: relative;\r\n  height: 30px;\r\n  margin-left: 15px !important;\r\n  padding-left: 0;\n}\n.and-or-rule:before,\r\n.and-or-rule:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -1px;\r\n  width: 16px;\r\n  height: calc(50% + 15px);\r\n  border-color: #c0c5e2;\r\n  border-style: solid;\n}\n.and-or-rule:before {\r\n  top: -15px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-rule:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-rule:last-child:after {\r\n  border: none;\n}\r\n", ""]);
 
 // exports
 
@@ -37531,6 +37710,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Box.vue?vue&type=style&index=0&lang=css&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Box.vue?vue&type=style&index=0&lang=css& ***!
@@ -38197,7 +38406,12 @@ var render = function() {
         staticClass: "col-xs-8 col-xs-offset-2",
         staticStyle: { "margin-top": "40px" }
       },
-      [_c("Box")],
+      [
+        _c("Box", {
+          ref: "box",
+          attrs: { isFirst: _vm.isFirst, options: _vm.options }
+        })
+      ],
       1
     )
   ])
@@ -38227,9 +38441,33 @@ var render = function() {
   return _c("div", { staticClass: "boxContainer" }, [
     _c(
       "div",
-      { staticClass: "and-or-template col-xs-12 and-or-first" },
-      [_vm._m(0), _vm._v(" "), _c("Rule")],
-      1
+      {
+        staticClass: "and-or-template col-xs-12",
+        class: _vm.isFirst ? "and-or-first" : ""
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.rules, function(rule, index) {
+          return _c("Rule", {
+            key: rule,
+            ref: "rules",
+            refInFor: true,
+            attrs: { options: _vm.options }
+          })
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.groups, function(group, index) {
+          return _c("Box", {
+            key: group,
+            ref: "groups",
+            refInFor: true,
+            staticClass: "and-or-offset col-xs-11",
+            attrs: { options: _vm.options }
+          })
+        })
+      ],
+      2
     )
   ])
 }
@@ -38239,23 +38477,19 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group and-or-top col-xs-12" }, [
-      _c(
-        "div",
-        { staticClass: "col-xs-5 text-left", staticStyle: { padding: "0" } },
-        [
-          _c(
-            "button",
-            { staticClass: "btn btn-xs btn-purple-outline btn-radius" },
-            [_vm._v(" And ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-xs btn-purple-outline btn-radius" },
-            [_vm._v(" Or ")]
-          )
-        ]
-      ),
+      _c("div", { staticClass: "col-xs-5", staticStyle: { padding: "0" } }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-xs btn-purple-outline btn-radius" },
+          [_vm._v(" And ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-xs btn-purple-outline btn-radius" },
+          [_vm._v(" Or ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-xs-7 btn-and-or" }, [
         _c("button", { staticClass: "btn btn-xs btn-purple pull-right" }, [
@@ -38296,246 +38530,146 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ruleContainer" }, [
+  return _c("div", { staticClass: "ruleContainer" }, [
+    _c("div", { staticClass: "form-group and-or-rule col-xs-12" }, [
+      _c("div", { staticClass: "col-xs-3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.firstSelector,
+                expression: "firstSelector"
+              }
+            ],
+            staticClass: "form-control input-sm",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.firstSelector = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.options.firstSelector, function(option, index) {
+            return _c(
+              "option",
+              { key: index, domProps: { value: option.id } },
+              [_vm._v(_vm._s(option.name))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-xs-3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.operator,
+                expression: "operator"
+              }
+            ],
+            staticClass: "form-control input-sm",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.operator = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.options.operator, function(option, index) {
+            return _c(
+              "option",
+              { key: index, domProps: { value: option.id } },
+              [_vm._v(_vm._s(option.name))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-xs-3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.secondSelector,
+                expression: "secondSelector"
+              }
+            ],
+            staticClass: "form-control input-sm",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.secondSelector = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.options.secondSelector, function(option, index) {
+            return _c(
+              "option",
+              { key: index, domProps: { value: option.id } },
+              [_vm._v(_vm._s(option.name))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
       _c(
-        "div",
+        "button",
         {
-          staticClass: "panel panel-default initial-rule-card and-or-template"
+          staticClass:
+            "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.deleteSelf()
+            }
+          }
         },
-        [
-          _c("div", { staticClass: "panel-body" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2 btn-cancel" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel"
-                  },
-                  [_c("i", { staticClass: "fa fa-fw fa-close" })]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2 btn-cancel" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel"
-                  },
-                  [_c("i", { staticClass: "fa fa-fw fa-close" })]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2 btn-cancel" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel"
-                  },
-                  [_c("i", { staticClass: "fa fa-fw fa-close" })]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-4" }, [
-                _c("select", { staticClass: "form-control input-sm" }, [
-                  _c("option", [_vm._v("Condition Selector 1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Condition Selector 5")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-xs-2 btn-cancel" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel"
-                  },
-                  [_c("i", { staticClass: "fa fa-fw fa-close" })]
-                )
-              ])
-            ])
-          ])
-        ]
+        [_c("i", { staticClass: "fa fa-fw fa-close" })]
       )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50793,7 +50927,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_332fccf4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=332fccf4& */ "./resources/js/components/App.vue?vue&type=template&id=332fccf4&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/components/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/App.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -50801,7 +50937,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _App_vue_vue_type_template_id_332fccf4___WEBPACK_IMPORTED_MODULE_0__["render"],
   _App_vue_vue_type_template_id_332fccf4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -50830,6 +50966,22 @@ component.options.__file = "resources/js/components/App.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/App.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/App.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

@@ -1,7 +1,42 @@
 <template>
   <div class="ruleContainer">
+    <div class="form-group and-or-rule col-xs-12">
+      <div class="col-xs-3">
+        <select class="form-control input-sm" v-model="firstSelector">
+          <option
+            v-for="(option,index) in options.firstSelector"
+            :key="index"
+            :value="option.id"
+          >{{ option.name }}</option>
+        </select>
+      </div>
+      <div class="col-xs-3">
+        <select class="form-control input-sm" v-model="operator">
+          <option
+            v-for="(option,index) in options.operator"
+            :key="index"
+            :value="option.id"
+          >{{ option.name }}</option>
+        </select>
+      </div>
+      <div class="col-xs-3">
+        <select class="form-control input-sm" v-model="secondSelector">
+          <option
+            v-for="(option,index) in options.secondSelector"
+            :key="index"
+            :value="option.id"
+          >{{ option.name }}</option>
+        </select>
+      </div>
+      <button
+        class="btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel"
+        @click.prevent="deleteSelf()"
+      >
+        <i class="fa fa-fw fa-close"></i>
+      </button>
+    </div>
     <!-- First Panel -->
-    <div class="panel panel-default initial-rule-card and-or-template">
+    <!-- <div class="panel panel-default initial-rule-card and-or-template">
       <div class="panel-body">
         <div class="form-group">
           <div class="col-xs-4">
@@ -140,11 +175,21 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 <script>
-export default {};
+// Rule - if conditions
+//Group - Nested condition boxes
+export default {
+  name: "rule",
+  props: ["options"],
+  methods: {
+    deleteSelf() {
+      this.$emit("delete-rule");
+    }
+  }
+};
 </script>
 
 <style>
@@ -166,7 +211,7 @@ export default {};
   left: -1px;
   width: 16px;
   height: calc(50% + 15px);
-  border-color: var(--node-color);
+  border-color: #c0c5e2;
   border-style: solid;
 }
 
