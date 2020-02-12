@@ -2028,6 +2028,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // Rule - if conditions
@@ -2061,6 +2082,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    clickAnd: function clickAnd() {
+      this.isAnd = true;
+    },
+    clickOr: function clickOr() {
+      this.isAnd = false;
+    },
     addRule: function addRule() {
       //Generating unique random id
       var id = this.generateId(); //Adding a new rule to the array
@@ -2070,6 +2097,15 @@ __webpack_require__.r(__webpack_exports__);
     addGroup: function addGroup() {
       var id = this.generateId();
       this.groups.push(id);
+    },
+    deleteSelf: function deleteSelf() {
+      this.$emit("delete-group");
+    },
+    deleteRule: function deleteRule(index) {
+      this.rules.splice(index, 1);
+    },
+    deleteGroup: function deleteGroup(index) {
+      this.groups.splice(index, 1);
     },
     generateId: function generateId() {
       return "xxxxxxxxxxxxxxxx".replace(/[xy]/g, function (c) {
@@ -2092,8 +2128,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -6848,7 +6882,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: lightgrey;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -17px;\r\n  width: 16px;\r\n  height: calc(50% + 18px);\r\n  /* left: -36px;\r\n  width: 35px;\r\n  height: calc(50% + 32px); */\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\n.and-or-template:before {\r\n  top: -18px;\r\n  /* top: -32px; */\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-template:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-template:last-child:after {\r\n  border: none;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: lightgrey;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -32px;\r\n  width: 31px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\n.and-or-template:before {\r\n  top: 2px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-template:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-template:last-child:after {\r\n  border: none;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\n.rule-first {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  margin-left: 45px;\r\n  width: 89.2%;\n}\r\n", ""]);
 
 // exports
 
@@ -6867,7 +6901,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --node-color: grey;\n}\n.and-or-rule {\r\n  position: relative;\r\n  height: 30px;\r\n  margin-left: 15px !important;\r\n  padding-left: 0;\n}\n.and-or-rule:before,\r\n.and-or-rule:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -1px;\r\n  width: 16px;\r\n  height: calc(50% + 15px);\r\n  border-color: #c0c5e2;\r\n  border-style: solid;\n}\n.and-or-rule:before {\r\n  top: -15px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-rule:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-rule:last-child:after {\r\n  border: none;\n}\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --node-color: grey;\n}\n.and-or-rule {\r\n  position: relative;\r\n  height: 30px;\r\n  margin-left: 15px !important;\r\n  padding-left: 0;\n}\n.and-or-rule:before,\r\n.and-or-rule:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -1px;\r\n  width: 16px;\r\n  height: calc(50% + 15px);\r\n  border-color: #ccc;\r\n  border-style: solid;\n}\n.and-or-rule:before {\r\n  top: -15px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-rule:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-rule:last-child:after {\r\n  border: none;\n}\r\n", ""]);
 
 // exports
 
@@ -38446,16 +38480,111 @@ var render = function() {
         class: _vm.isFirst ? "and-or-first" : ""
       },
       [
-        _vm._m(0),
+        _c("div", { staticClass: "form-group and-or-top col-xs-12" }, [
+          _c(
+            "div",
+            { staticClass: "col-xs-5", staticStyle: { padding: "0" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-xs btn-purple-outline btn-radius",
+                  class: _vm.isAnd ? "btn-purple-outline-focus" : "",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.clickAnd($event)
+                    }
+                  }
+                },
+                [_vm._v(" And ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-xs btn-purple-outline btn-radius",
+                  class: !_vm.isAnd ? "btn-purple-outline-focus" : "",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.clickOr($event)
+                    }
+                  }
+                },
+                [_vm._v(" Or ")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-xs-7 btn-and-or" }, [
+            !_vm.isFirst
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-xs btn-purple pull-right",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.deleteSelf()
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-fw fa-close" })]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-xs btn-purple pull-right",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.addGroup($event)
+                  }
+                }
+              },
+              [_vm._v("+ ( group )")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-xs btn-purple add-rule pull-right",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.addRule($event)
+                  }
+                }
+              },
+              [_vm._v("+ add")]
+            )
+          ])
+        ]),
         _vm._v(" "),
-        _vm._l(_vm.rules, function(rule, index) {
-          return _c("Rule", {
-            key: rule,
-            ref: "rules",
-            refInFor: true,
-            attrs: { options: _vm.options }
-          })
-        }),
+        _c(
+          "div",
+          {
+            staticClass: "ruleContainer",
+            class: _vm.isFirst ? ["col-xs-12", "rule-first"] : ""
+          },
+          _vm._l(_vm.rules, function(rule, index) {
+            return _c("Rule", {
+              key: rule,
+              ref: "rules",
+              refInFor: true,
+              attrs: { options: _vm.options },
+              on: {
+                "delete-rule": function($event) {
+                  return _vm.deleteRule(index)
+                }
+              }
+            })
+          }),
+          1
+        ),
         _vm._v(" "),
         _vm._l(_vm.groups, function(group, index) {
           return _c("Box", {
@@ -38463,7 +38592,12 @@ var render = function() {
             ref: "groups",
             refInFor: true,
             staticClass: "and-or-offset col-xs-11",
-            attrs: { options: _vm.options }
+            attrs: { options: _vm.options },
+            on: {
+              "delete-group": function($event) {
+                return _vm.deleteGroup(index)
+              }
+            }
           })
         })
       ],
@@ -38471,44 +38605,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group and-or-top col-xs-12" }, [
-      _c("div", { staticClass: "col-xs-5", staticStyle: { padding: "0" } }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-xs btn-purple-outline btn-radius" },
-          [_vm._v(" And ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-xs btn-purple-outline btn-radius" },
-          [_vm._v(" Or ")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-xs-7 btn-and-or" }, [
-        _c("button", { staticClass: "btn btn-xs btn-purple pull-right" }, [
-          _c("i", { staticClass: "fa fa-fw fa-close" })
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn btn-xs btn-purple pull-right" }, [
-          _vm._v("+ ( group )")
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-xs btn-purple add-rule pull-right" },
-          [_vm._v("+ add")]
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38530,143 +38627,135 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ruleContainer" }, [
-    _c("div", { staticClass: "form-group and-or-rule col-xs-12" }, [
-      _c("div", { staticClass: "col-xs-3" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.firstSelector,
-                expression: "firstSelector"
-              }
-            ],
-            staticClass: "form-control input-sm",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.firstSelector = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          _vm._l(_vm.options.firstSelector, function(option, index) {
-            return _c(
-              "option",
-              { key: index, domProps: { value: option.id } },
-              [_vm._v(_vm._s(option.name))]
-            )
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-xs-3" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.operator,
-                expression: "operator"
-              }
-            ],
-            staticClass: "form-control input-sm",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.operator = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          _vm._l(_vm.options.operator, function(option, index) {
-            return _c(
-              "option",
-              { key: index, domProps: { value: option.id } },
-              [_vm._v(_vm._s(option.name))]
-            )
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-xs-3" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.secondSelector,
-                expression: "secondSelector"
-              }
-            ],
-            staticClass: "form-control input-sm",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.secondSelector = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          _vm._l(_vm.options.secondSelector, function(option, index) {
-            return _c(
-              "option",
-              { key: index, domProps: { value: option.id } },
-              [_vm._v(_vm._s(option.name))]
-            )
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
+  return _c("div", { staticClass: "form-group and-or-rule col-xs-12" }, [
+    _c("div", { staticClass: "col-xs-3" }, [
       _c(
-        "button",
+        "select",
         {
-          staticClass:
-            "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel",
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.firstSelector,
+              expression: "firstSelector"
+            }
+          ],
+          staticClass: "form-control input-sm",
           on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.deleteSelf()
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.firstSelector = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
             }
           }
         },
-        [_c("i", { staticClass: "fa fa-fw fa-close" })]
+        _vm._l(_vm.options.firstSelector, function(option, index) {
+          return _c("option", { key: index, domProps: { value: option.id } }, [
+            _vm._v(_vm._s(option.name))
+          ])
+        }),
+        0
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-xs-3" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.operator,
+              expression: "operator"
+            }
+          ],
+          staticClass: "form-control input-sm",
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.operator = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        _vm._l(_vm.options.operator, function(option, index) {
+          return _c("option", { key: index, domProps: { value: option.id } }, [
+            _vm._v(_vm._s(option.name))
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-xs-3" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.secondSelector,
+              expression: "secondSelector"
+            }
+          ],
+          staticClass: "form-control input-sm",
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.secondSelector = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        _vm._l(_vm.options.secondSelector, function(option, index) {
+          return _c("option", { key: index, domProps: { value: option.id } }, [
+            _vm._v(_vm._s(option.name))
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel",
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.deleteSelf()
+          }
+        }
+      },
+      [_c("i", { staticClass: "fa fa-fw fa-close" })]
+    )
   ])
 }
 var staticRenderFns = []

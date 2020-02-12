@@ -3,25 +3,46 @@
     <div class="and-or-template col-xs-12" v-bind:class="isFirst ? 'and-or-first' : ''">
       <div class="form-group and-or-top col-xs-12">
         <div class="col-xs-5" style="padding: 0">
-          <button class="btn btn-xs btn-purple-outline btn-radius">&nbsp;And&nbsp;</button>
-          <button class="btn btn-xs btn-purple-outline btn-radius">&nbsp;Or&nbsp;</button>
+          <button
+            class="btn btn-xs btn-purple-outline btn-radius"
+            :class=" isAnd ? 'btn-purple-outline-focus' : '' "
+            @click.prevent="clickAnd"
+          >&nbsp;And&nbsp;</button>
+          <button
+            class="btn btn-xs btn-purple-outline btn-radius"
+            :class=" !isAnd ? 'btn-purple-outline-focus' : '' "
+            @click.prevent="clickOr"
+          >&nbsp;Or&nbsp;</button>
         </div>
         <div class="col-xs-7 btn-and-or">
-          <button class="btn btn-xs btn-purple pull-right">
+          <button
+            v-if="!isFirst"
+            class="btn btn-xs btn-purple pull-right"
+            @click.prevent="deleteSelf()"
+          >
             <i class="fa fa-fw fa-close"></i>
           </button>
-          <button class="btn btn-xs btn-purple pull-right">+ ( group )</button>
-          <button class="btn btn-xs btn-purple add-rule pull-right">+ add</button>
+          <button class="btn btn-xs btn-purple pull-right" @click.prevent="addGroup">+ ( group )</button>
+          <button class="btn btn-xs btn-purple add-rule pull-right" @click.prevent="addRule">+ add</button>
         </div>
       </div>
       <!-- Rule Starts -->
-      <Rule v-for="(rule,index) in rules" ref="rules" :key="rule" v-bind:options="options"></Rule>
+      <div class="ruleContainer" v-bind:class="isFirst ? ['col-xs-12','rule-first'] : ''">
+        <Rule
+          v-for="(rule,index) in rules"
+          ref="rules"
+          :key="rule"
+          v-bind:options="options"
+          @delete-rule="deleteRule(index)"
+        ></Rule>
+      </div>
       <Box
         class="and-or-offset col-xs-11"
         v-for="(group, index) in groups"
         ref="groups"
         :options="options"
         :key="group"
+        @delete-group="deleteGroup(index)"
       ></Box>
     </div>
   </div>
@@ -62,6 +83,14 @@ export default {
     };
   },
   methods: {
+    clickAnd() {
+      this.isAnd = true;
+    },
+
+    clickOr() {
+      this.isAnd = false;
+    },
+
     addRule() {
       //Generating unique random id
       var id = this.generateId();
@@ -71,6 +100,17 @@ export default {
     addGroup() {
       var id = this.generateId();
       this.groups.push(id);
+    },
+    deleteSelf() {
+      this.$emit("delete-group");
+    },
+
+    deleteRule(index) {
+      this.rules.splice(index, 1);
+    },
+
+    deleteGroup(index) {
+      this.groups.splice(index, 1);
     },
     generateId() {
       return "xxxxxxxxxxxxxxxx".replace(/[xy]/g, function(c) {
@@ -106,19 +146,15 @@ export default {
 .and-or-template:after {
   content: "";
   position: absolute;
-  left: -17px;
-  width: 16px;
+  left: -32px;
+  width: 31px;
   height: calc(50% + 18px);
-  /* left: -36px;
-  width: 35px;
-  height: calc(50% + 32px); */
   border-color: var(--node-color);
   border-style: solid;
 }
 
 .and-or-template:before {
-  top: -18px;
-  /* top: -32px; */
+  top: 2px;
   border-width: 0 0 2px 2px;
 }
 
@@ -144,5 +180,18 @@ export default {
 
 .and-or-offset {
   margin-left: 30px;
+}
+.rule-first {
+  padding: 10px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-top-color: var(--border-color);
+  background-color: rgba(255, 255, 255, 0.9);
+  margin-left: 45px;
+  width: 89.2%;
 }
 </style>
