@@ -27,7 +27,7 @@
         </div>
       </div>
       <!-- Rule Starts -->
-      <div class="ruleContainer" v-bind:class="isFirst ? ['col-xs-12','rule-first'] : ''">
+      <div class="ruleContainer" v-bind:class="isFirst ? ['col-xs-12','group-first'] : ''">
         <Rule
           v-for="(rule,index) in rules"
           ref="rules"
@@ -142,8 +142,10 @@ export default {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.and-or-template:before,
-.and-or-template:after {
+/* .and-or-template:before,
+.and-or-template:after,
+.group-first:before,
+.group-first:after {
   content: "";
   position: absolute;
   left: -32px;
@@ -153,12 +155,14 @@ export default {
   border-style: solid;
 }
 
-.and-or-template:before {
+.and-or-template:before,
+.group-first:before {
   top: 2px;
   border-width: 0 0 2px 2px;
 }
 
-.and-or-template:after {
+.and-or-template:after,
+.group-first:after {
   top: 50%;
   border-width: 0 0 0 2px;
 }
@@ -168,7 +172,7 @@ export default {
 .and-or-template:last-child:after {
   border: none;
 }
-
+*/
 .and-or-top,
 .btn-and-or {
   padding: 0;
@@ -181,7 +185,7 @@ export default {
 .and-or-offset {
   margin-left: 30px;
 }
-.rule-first {
+.group-first {
   padding: 10px;
   position: relative;
   border-radius: 3px;
@@ -193,5 +197,6 @@ export default {
   background-color: rgba(255, 255, 255, 0.9);
   margin-left: 45px;
   width: 89.2%;
+  padding-top: 25px;
 }
 </style>

@@ -202,7 +202,7 @@ export default {
   padding-left: 0;
 }
 
-.and-or-rule:before,
+/* .and-or-rule:before,
 .and-or-rule:after {
   content: "";
   position: absolute;
@@ -225,5 +225,5 @@ export default {
 
 .and-or-rule:last-child:after {
   border: none;
-}
+} */
 </style>
