@@ -10901,45 +10901,45 @@ body {
   margin-top: 40px;
 }
 
-/* purple theme */
+/* orange theme */
 
-.box.box-purple {
+.box.box-orange {
   border-top-color: #ed6c44;
 }
 
-.box.box-solid.box-purple {
+.box.box-solid.box-orange {
   border: 1px solid #ed6c44;
 }
 
-.box.box-solid.box-purple > .box-header {
+.box.box-solid.box-orange > .box-header {
   color: #fff;
   background-color: #ed6c44;
 }
 
-.skin-purple .main-header .navbar {
+.skin-orange .main-header .navbar {
   background-color: #ed6c44;
 }
 
-.btn-purple-outline {
+.btn-orange-outline {
   color: #ed6c44;
   background-color: transparent;
   background-image: none;
   border-color: #ed6c44;
 }
 
-.btn-purple,
-.btn-purple-outline:hover,
-.btn-purple-outline:active,
-.btn-purple-outline:focus,
-.btn-purple-outline-focus {
+.btn-orange,
+.btn-orange-outline:hover,
+.btn-orange-outline:active,
+.btn-orange-outline:focus,
+.btn-orange-outline-focus {
   color: #fff;
   background-color: #ed6c44;
   border-color: #ed6c44;
 }
 
-.btn-purple:hover,
-.btn-purple:active,
-.btn-purple:focus {
+.btn-orange:hover,
+.btn-orange:active,
+.btn-orange:focus {
   color: #fff;
   background-color: #ed6c44;
   border-color: #ed6c44;
@@ -10949,7 +10949,7 @@ body {
   border-radius: 11px;
 }
 
-.btn-purple-round {
+.btn-orange-round {
   padding: 0;
   width: 20px;
   height: 20px;

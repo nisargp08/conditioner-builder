@@ -2061,6 +2061,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // Rule - if conditions
@@ -6931,7 +6942,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: #ccc;\r\n  --child-shadow-color: #5cb85c;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after,\r\n.group-first:before,\r\n.group-first:after {\r\n  position: absolute;\r\n  content: \"\";\r\n  left: -32px;\r\n  width: 31px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\r\n/*Horizontal lines For the first group only*/\n.group-first:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -20px;\r\n  height: calc(50% + 20px);\n}\r\n/* Horizontal lines */\n.and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -60px;\r\n  height: calc(50% + 60px);\n}\r\n/*Vertical lines*/\n.and-or-template:after,\r\n.group-first:after {\r\n  border-width: 0 0 0px 2px;\r\n  top: 50%;\n}\r\n/*No border for last child and outer box*/\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-template .boxContainer:last-of-type .and-or-template:after {\r\n  border: none;\n}\r\n/*Different node representation for first-group conditions*/\n.group-first .and-or-rule:first-child::before {\r\n  border-width: 0px 0px 2px 0px;\n}\n.group-first:before {\r\n  width: 58px;\r\n  padding: 2px 2px;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\n.group-first {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  margin-left: 45px;\r\n  width: 89.2%;\r\n  padding-top: 25px;\n}\n.child-box-shadow {\r\n  box-shadow: 0px 0px 20px 5px var(--child-shadow-color);\r\n  padding-top: 15px;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: #ccc;\r\n  --child-shadow-color: #5cb85c;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after,\r\n.group-first:before,\r\n.group-first:after {\r\n  position: absolute;\r\n  content: \"\";\r\n  left: -32px;\r\n  width: 31px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\r\n/*Horizontal lines For the first group only*/\n.group-first:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -18px;\r\n  height: calc(50% + 20px);\n}\r\n/* Horizontal lines */\n.and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -60px;\r\n  height: calc(50% + 60px);\n}\r\n/*Vertical lines*/\n.and-or-template:after,\r\n.group-first:after {\r\n  border-width: 0 0 0px 2px;\r\n  top: 50%;\n}\r\n/*No border for last child and outer box*/\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-first .boxContainer:last-of-type .and-or-template:after,\r\n.and-or-template .ruleContainer:last-of-type:after {\r\n  border: none;\n}\r\n/*Different node representation for first-group conditions*/\n.group-first .and-or-rule:first-child::before {\r\n  border-width: 0px 0px 2px 0px;\n}\n.group-first:before {\r\n  width: 58px;\r\n  padding: 2px 2px;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\n.group-first {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  margin-left: 45px;\r\n  width: 89.2%;\r\n  padding-top: 25px;\n}\n.child-box-shadow {\r\n  box-shadow: 0px 0px 20px 5px var(--child-shadow-color);\r\n  padding-top: 15px;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -38537,8 +38548,8 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-xs btn-purple-outline btn-radius",
-                  class: _vm.isAnd ? "btn-purple-outline-focus" : "",
+                  staticClass: "btn btn-xs btn-orange-outline btn-radius",
+                  class: _vm.isAnd ? "btn-orange-outline-focus" : "",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
@@ -38552,8 +38563,8 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-xs btn-purple-outline btn-radius",
-                  class: !_vm.isAnd ? "btn-purple-outline-focus" : "",
+                  staticClass: "btn btn-xs btn-orange-outline btn-radius",
+                  class: !_vm.isAnd ? "btn-orange-outline-focus" : "",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
@@ -38571,7 +38582,8 @@ var render = function() {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-xs btn-purple pull-right",
+                    staticClass: "btn btn-xs btn-orange pull-right",
+                    attrs: { title: "Delete group" },
                     on: {
                       click: function($event) {
                         $event.preventDefault()
@@ -38588,6 +38600,10 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-xs btn-success add-rule pull-right",
+                    attrs: {
+                      title:
+                        "To display highlighting border around all the child elements"
+                    },
                     on: {
                       click: function($event) {
                         $event.preventDefault()
@@ -38602,6 +38618,10 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-xs btn-danger add-rule pull-right",
+                    attrs: {
+                      title:
+                        "To remove the highlighting border around all the child elements"
+                    },
                     on: {
                       click: function($event) {
                         $event.preventDefault()
@@ -38616,7 +38636,8 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-xs btn-purple pull-right",
+                staticClass: "btn btn-xs btn-orange pull-right",
+                attrs: { title: "add condition group" },
                 on: {
                   click: function($event) {
                     $event.preventDefault()
@@ -38630,7 +38651,8 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-xs btn-purple add-rule pull-right",
+                staticClass: "btn btn-xs btn-orange add-rule pull-right",
+                attrs: { title: "add condition" },
                 on: {
                   click: function($event) {
                     $event.preventDefault()
@@ -38825,7 +38847,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel",
+          "btn btn-xs btn-orange-outline btn-radius btn-orange-round btn-cancel",
         on: {
           click: function($event) {
             $event.preventDefault()

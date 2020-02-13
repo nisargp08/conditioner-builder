@@ -4,21 +4,22 @@
       <div class="form-group and-or-top col-xs-12">
         <div class="col-xs-5" style="padding: 0">
           <button
-            class="btn btn-xs btn-purple-outline btn-radius"
-            :class=" isAnd ? 'btn-purple-outline-focus' : '' "
+            class="btn btn-xs btn-orange-outline btn-radius"
+            :class=" isAnd ? 'btn-orange-outline-focus' : '' "
             @click.prevent="clickAnd"
           >&nbsp;All&nbsp;</button>
           <button
-            class="btn btn-xs btn-purple-outline btn-radius"
-            :class=" !isAnd ? 'btn-purple-outline-focus' : '' "
+            class="btn btn-xs btn-orange-outline btn-radius"
+            :class=" !isAnd ? 'btn-orange-outline-focus' : '' "
             @click.prevent="clickOr"
           >&nbsp;Any&nbsp;</button>
         </div>
         <div class="col-xs-7 btn-and-or">
           <button
             v-if="!isFirst"
-            class="btn btn-xs btn-purple pull-right"
+            class="btn btn-xs btn-orange pull-right"
             @click.prevent="deleteSelf()"
+            title="Delete group"
           >
             <i class="fa fa-fw fa-close"></i>
           </button>
@@ -26,14 +27,24 @@
             v-if="showChildButton"
             class="btn btn-xs btn-success add-rule pull-right"
             @click.prevent="showChild"
+            title="To display highlighting border around all the child elements"
           >Show Child</button>
           <button
             v-else-if="changeChildButtonText"
             class="btn btn-xs btn-danger add-rule pull-right"
             @click.prevent="showChild"
+            title="To remove the highlighting border around all the child elements"
           >Hide Child</button>
-          <button class="btn btn-xs btn-purple pull-right" @click.prevent="addGroup">+ ( group )</button>
-          <button class="btn btn-xs btn-purple add-rule pull-right" @click.prevent="addRule">+ add</button>
+          <button
+            class="btn btn-xs btn-orange pull-right"
+            @click.prevent="addGroup"
+            title="add condition group"
+          >+ ( group )</button>
+          <button
+            class="btn btn-xs btn-orange add-rule pull-right"
+            @click.prevent="addRule"
+            title="add condition"
+          >+ add</button>
         </div>
       </div>
       <!-- Rule Starts -->
@@ -209,7 +220,7 @@ export default {
 /*Horizontal lines For the first group only*/
 .group-first:before {
   border-width: 0 0 2px 2px;
-  top: -20px;
+  top: -18px;
   height: calc(50% + 20px);
 }
 /* Horizontal lines */
@@ -227,7 +238,8 @@ export default {
 /*No border for last child and outer box*/
 .and-or-first:before,
 .and-or-first:after,
-.and-or-template .boxContainer:last-of-type .and-or-template:after {
+.and-or-first .boxContainer:last-of-type .and-or-template:after,
+.and-or-template .ruleContainer:last-of-type:after {
   border: none;
 }
 /*Different node representation for first-group conditions*/

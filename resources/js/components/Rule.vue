@@ -28,7 +28,7 @@
       </select>
     </div>
     <button
-      class="btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel"
+      class="btn btn-xs btn-orange-outline btn-radius btn-orange-round btn-cancel"
       @click.prevent="deleteSelf()"
     >
       <i class="fa fa-fw fa-close"></i>
@@ -66,7 +66,7 @@
             </select>
           </div>
           <div class="col-xs-2 btn-cancel">
-            <button class="btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel">
+            <button class="btn btn-xs btn-orange-outline btn-radius btn-orange-round btn-cancel">
               <i class="fa fa-fw fa-close"></i>
             </button>
           </div>
@@ -100,7 +100,7 @@
             </select>
           </div>
           <div class="col-xs-2 btn-cancel">
-            <button class="btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel">
+            <button class="btn btn-xs btn-orange-outline btn-radius btn-orange-round btn-cancel">
               <i class="fa fa-fw fa-close"></i>
             </button>
           </div>
@@ -134,7 +134,7 @@
             </select>
           </div>
           <div class="col-xs-2 btn-cancel">
-            <button class="btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel">
+            <button class="btn btn-xs btn-orange-outline btn-radius btn-orange-round btn-cancel">
               <i class="fa fa-fw fa-close"></i>
             </button>
           </div>
@@ -168,7 +168,7 @@
             </select>
           </div>
           <div class="col-xs-2 btn-cancel">
-            <button class="btn btn-xs btn-purple-outline btn-radius btn-purple-round btn-cancel">
+            <button class="btn btn-xs btn-orange-outline btn-radius btn-orange-round btn-cancel">
               <i class="fa fa-fw fa-close"></i>
             </button>
           </div>
