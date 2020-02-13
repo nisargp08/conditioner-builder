@@ -7,12 +7,12 @@
             class="btn btn-xs btn-purple-outline btn-radius"
             :class=" isAnd ? 'btn-purple-outline-focus' : '' "
             @click.prevent="clickAnd"
-          >&nbsp;And&nbsp;</button>
+          >&nbsp;All&nbsp;</button>
           <button
             class="btn btn-xs btn-purple-outline btn-radius"
             :class=" !isAnd ? 'btn-purple-outline-focus' : '' "
             @click.prevent="clickOr"
-          >&nbsp;Or&nbsp;</button>
+          >&nbsp;Any&nbsp;</button>
         </div>
         <div class="col-xs-7 btn-and-or">
           <button
@@ -126,7 +126,7 @@ export default {
 <style>
 :root {
   --border-color: #ed6c44;
-  --node-color: lightgrey;
+  --node-color: #ccc;
 }
 .and-or-template {
   /* padding: 10px; */
@@ -142,37 +142,50 @@ export default {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* .and-or-template:before,
+.and-or-template:before,
 .and-or-template:after,
 .group-first:before,
 .group-first:after {
-  content: "";
   position: absolute;
+  content: "";
   left: -32px;
   width: 31px;
   height: calc(50% + 18px);
   border-color: var(--node-color);
   border-style: solid;
 }
-
-.and-or-template:before,
+/*Horizontal lines For the first group only*/
 .group-first:before {
-  top: 2px;
   border-width: 0 0 2px 2px;
+  top: -20px;
+  height: calc(50% + 20px);
 }
-
+/* Horizontal lines */
+.and-or-template:before {
+  border-width: 0 0 2px 2px;
+  top: -60px;
+  height: calc(50% + 60px);
+}
+/*Vertical lines*/
 .and-or-template:after,
 .group-first:after {
+  border-width: 0 0 0px 2px;
   top: 50%;
-  border-width: 0 0 0 2px;
 }
-
+/*No border for last child and outer box*/
 .and-or-first:before,
 .and-or-first:after,
-.and-or-template:last-child:after {
+.and-or-template .boxContainer:last-of-type .and-or-template:after {
   border: none;
 }
-*/
+/*Different node representation for first-group conditions*/
+.group-first .and-or-rule:first-child::before {
+  border-width: 0px 0px 2px 0px;
+}
+.group-first:before {
+  width: 58px;
+  padding: 2px 2px;
+}
 .and-or-top,
 .btn-and-or {
   padding: 0;
