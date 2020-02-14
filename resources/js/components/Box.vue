@@ -124,9 +124,31 @@ export default {
       //Storing nested groups
       groups: [],
       // Fixed color scheme
-      fixColorScheme: ["#A8E6CE", "#DCEDC2", "#FFD3B5", "#FFAAA6", "#FF8C94"],
+      fixColorScheme: [
+        "#A8E6CE",
+        "#DCEDC2",
+        "#FFD3B5",
+        "#FFAAA6",
+        "#FF8C94",
+        "#F26B38",
+        "#FC913A",
+        "#E5FCC2",
+        "#9DE0AD",
+        "#C8C8A9"
+      ],
       //Color Processing Array
-      colorProcessing: ["#A8E6CE", "#DCEDC2", "#FFD3B5", "#FFAAA6", "#FF8C94"],
+      colorProcessing: [
+        "#A8E6CE",
+        "#DCEDC2",
+        "#FFD3B5",
+        "#FFAAA6",
+        "#FF8C94",
+        "#F26B38",
+        "#FC913A",
+        "#E5FCC2",
+        "#9DE0AD",
+        "#C8C8A9"
+      ],
       //To keep track if logical gate 'AND' is selected or not -- By default set to true
       isAnd: true,
       isGroupAnd: true,

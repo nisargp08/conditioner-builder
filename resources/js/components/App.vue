@@ -3,6 +3,9 @@
     <div class="col-xs-8 col-xs-offset-2" style="margin-top: 40px">
       <Box ref="box" v-bind:isFirst="isFirst" v-bind:options="options"></Box>
     </div>
+    <div class="effect-container col-xs-8 col-xs-offset-2">
+      <effect :options="options"></effect>
+    </div>
   </div>
 </template>
 
@@ -10,10 +13,12 @@
 // Rule - if conditions
 //Group - Nested condition boxes
 import Box from "./Box.vue";
+import Effect from "./Effect.vue";
 export default {
   name: "app",
   components: {
-    Box
+    Box,
+    Effect
   },
   data() {
     return {
