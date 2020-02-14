@@ -1,5 +1,21 @@
 <template>
   <div class="boxContainer">
+    <div class="outer-groups-condition" v-if="!isFirst">
+      <div class="btn-group group-condition-btn" role="group" aria-label="Outer Groups Conditions">
+        <button
+          class="btn btn-xs btn-yellow-outline btn-radius"
+          title="Outer group conditions"
+          :class=" isGroupAnd ? 'btn-yellow-outline-focus' : '' "
+          @click.prevent="clickGroupAnd"
+        >ALL</button>
+        <button
+          class="btn btn-xs btn-yellow-outline btn-radius"
+          title="Outer group conditions"
+          :class=" !isGroupAnd ? 'btn-yellow-outline-focus' : '' "
+          @click.prevent="clickGroupOr"
+        >ANY</button>
+      </div>
+    </div>
     <div class="and-or-template col-xs-12" v-bind:class="[isFirst ? 'and-or-first' : '']">
       <div class="form-group and-or-top col-xs-12">
         <div class="col-xs-5" style="padding: 0">
@@ -54,6 +70,7 @@
           ref="rules"
           :key="rule"
           :id="rule"
+          :rules="rules"
           v-bind:options="options"
           @delete-rule="deleteRule(index)"
         ></Rule>
@@ -101,8 +118,13 @@ export default {
       rules: [],
       //Storing nested groups
       groups: [],
+      // Fixed color scheme
+      fixColorScheme: ["#fff6e9", "#ffefd7", "#fffef9", "#e3f0ff", "#d2e7ff"],
+      //Color Processing Array
+      colorProcessing: [],
       //To keep track if logical gate 'AND' is selected or not -- By default set to true
       isAnd: true,
+      isGroupAnd: true,
       isShowChild: false
     };
   },
@@ -137,6 +159,12 @@ export default {
 
     clickOr() {
       this.isAnd = false;
+    },
+    clickGroupAnd() {
+      this.isGroupAnd = true;
+    },
+    clickGroupOr() {
+      this.isGroupAnd = false;
     },
     showChild() {
       //Toggle value
@@ -198,7 +226,7 @@ export default {
   border-radius: 3px;
   border: 1px solid var(--border-color);
   border-top: 3px solid #d2d6de;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   /* width: 100%; */
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   border-top-color: var(--border-color);
@@ -226,8 +254,8 @@ export default {
 /* Horizontal lines */
 .and-or-template:before {
   border-width: 0 0 2px 2px;
-  top: -52px;
-  height: calc(50% + 52px);
+  top: -76px;
+  height: calc(50% + 76px);
 }
 /*Vertical lines*/
 .and-or-template:after,
@@ -238,7 +266,7 @@ export default {
 /*No border for last child and outer box*/
 .and-or-first:before,
 .and-or-first:after,
-.and-or-first .boxContainer:last-of-type .and-or-template:after,
+.and-or-first .boxContainer:last-child .and-or-template:after,
 .and-or-template .ruleContainer:last-of-type:after {
   border: none;
 }
@@ -268,7 +296,7 @@ export default {
   border-radius: 3px;
   border: 1px solid var(--border-color);
   border-top: 3px solid #d2d6de;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   border-top-color: var(--border-color);
   background-color: rgba(255, 255, 255, 0.9);
@@ -283,4 +311,22 @@ export default {
   padding-top: 15px;
   margin-bottom: 10px;
 }
+.child-box-shadow .and-or-template:before {
+  border-width: 0 0 2px 2px;
+  top: -92px;
+  height: calc(50% + 92px);
+}
+/* .group-condition-btn:before,
+.group-condition-btn:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #ffaf42;
+  width: 0;
+  height: 10px;
+  left: 37px;
+  top: -10px;
+}
+.group-condition-btn:after {
+  top: 28px;
+} */
 </style>

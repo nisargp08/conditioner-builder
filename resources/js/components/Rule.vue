@@ -28,6 +28,7 @@
       </select>
     </div>
     <button
+      v-if="ruleLength"
       class="btn btn-xs btn-orange-outline btn-radius btn-orange-round btn-cancel"
       @click.prevent="deleteSelf()"
     >
@@ -181,7 +182,17 @@
 //Group - Nested condition boxes
 export default {
   name: "rule",
-  props: ["options"],
+  props: ["options", "rules"],
+  computed: {
+    ruleLength() {
+      var result = false;
+      if (this.rules.length > 1) {
+        //Show delete(x) button
+        result = true;
+      }
+      return result;
+    }
+  },
   methods: {
     deleteSelf() {
       this.$emit("delete-rule");

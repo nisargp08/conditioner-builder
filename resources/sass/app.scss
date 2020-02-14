@@ -9,6 +9,7 @@
 
 //Variables
 $border-color: #ed6c44;
+$group-condition-color: #ffaf42;
 html,
 body {
     font-family: "Nunito", sans-serif;
@@ -80,4 +81,20 @@ body {
 .form-control {
     font-size: 1.5rem;
     border-radius: 1.3rem;
+}
+.outer-groups-condition {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btn-yellow-outline-focus,
+.btn-yellow-outline:hover,
+.btn-yellow-outline:active {
+    color: #fff;
+    background-color: $group-condition-color;
+    border-color: $group-condition-color;
+}
+.btn-yellow-outline {
+    border-color: $group-condition-color;
+    font-size: 1.2rem;
 }

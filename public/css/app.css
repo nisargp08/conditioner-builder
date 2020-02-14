@@ -10962,3 +10962,22 @@ body {
   border-radius: 1.3rem;
 }
 
+.outer-groups-condition {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.btn-yellow-outline-focus,
+.btn-yellow-outline:hover,
+.btn-yellow-outline:active {
+  color: #fff;
+  background-color: #ffaf42;
+  border-color: #ffaf42;
+}
+
+.btn-yellow-outline {
+  border-color: #ffaf42;
+  font-size: 1.2rem;
+}
+
