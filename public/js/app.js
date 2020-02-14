@@ -2089,6 +2089,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // Rule - if conditions
@@ -2118,13 +2123,15 @@ __webpack_require__.r(__webpack_exports__);
       //Storing nested groups
       groups: [],
       // Fixed color scheme
-      fixColorScheme: ["#fff6e9", "#ffefd7", "#fffef9", "#e3f0ff", "#d2e7ff"],
+      fixColorScheme: ["#A8E6CE", "#DCEDC2", "#FFD3B5", "#FFAAA6", "#FF8C94"],
       //Color Processing Array
-      colorProcessing: [],
+      colorProcessing: ["#A8E6CE", "#DCEDC2", "#FFD3B5", "#FFAAA6", "#FF8C94"],
       //To keep track if logical gate 'AND' is selected or not -- By default set to true
       isAnd: true,
       isGroupAnd: true,
-      isShowChild: false
+      isShowChild: false,
+      colorChanger: false,
+      changeColorTo: ""
     };
   },
   computed: {
@@ -2148,6 +2155,48 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    enableColor: function enableColor() {
+      // var index = 0;
+      // console.log("--------------------------------------");
+      // console.log("FIX ARRAY - " + this.fixColorScheme);
+      // if (this.colorProcessing.length <= 0) {
+      //   this.colorProcessing = this.fixColorScheme.slice();
+      // }
+      // console.log("PROCESS ARRAY - " + this.colorProcessing);
+      // console.log("COLOR CHANGE VALUE BEFORE CHANGE : " + this.colorChanger);
+      // this.colorChanger = this.colorProcessing[index];
+      // console.log("COLOR CHANGE VALUE AFTER CHANGE : " + this.colorChanger);
+      // this.colorProcessing.splice(index, 1);
+      // console.log("PROCESS ARRAY - " + this.colorProcessing);
+      // for (let i = 0; i < this.groups.length; i++) {
+      //   var id = this.groups[i];
+      //   console.log(id);
+      //   // $("#" + id).css("background-color", this.changeColorTo);
+      // }
+      this.colorChanger = !this.colorChanger;
+      var index = 0;
+
+      if (this.colorChanger) {
+        if (this.colorProcessing.length <= 0) {
+          this.colorProcessing = this.fixColorScheme.slice();
+        }
+
+        this.changeColorTo = this.colorProcessing[index];
+        this.colorProcessing.splice(index, 1);
+        console.log("PROCESS ARRAY - " + this.colorProcessing);
+
+        for (var i = 0; i < this.groups.length; i++) {
+          var id = this.groups[i];
+          console.log(id);
+          $("#" + id).css("background-color", this.changeColorTo);
+        }
+      } else {
+        for (var _i = 0; _i < this.groups.length; _i++) {
+          var id = this.groups[_i];
+          $("#" + id).css("background-color", "white");
+        }
+      }
+    },
     clickAnd: function clickAnd() {
       this.isAnd = true;
     },
@@ -2170,8 +2219,8 @@ __webpack_require__.r(__webpack_exports__);
           $("#" + id).addClass("child-box-shadow");
         }
       } else {
-        for (var _i = 0; _i < this.groups.length; _i++) {
-          var id = this.groups[_i];
+        for (var _i2 = 0; _i2 < this.groups.length; _i2++) {
+          var id = this.groups[_i2];
           $("#" + id).removeClass("child-box-shadow");
         }
       }
@@ -6983,7 +7032,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: #ccc;\r\n  --child-shadow-color: #5cb85c;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 10px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after,\r\n.group-first:before,\r\n.group-first:after {\r\n  position: absolute;\r\n  content: \"\";\r\n  left: -32px;\r\n  width: 31px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\r\n/*Horizontal lines For the first group only*/\n.group-first:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -13px;\r\n  height: calc(50% + 16px);\n}\r\n/* Horizontal lines */\n.and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -76px;\r\n  height: calc(50% + 76px);\n}\r\n/*Vertical lines*/\n.and-or-template:after,\r\n.group-first:after {\r\n  border-width: 0 0 0px 2px;\r\n  top: 50%;\n}\r\n/*No border for last child and outer box*/\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-first .boxContainer:last-child .and-or-template:after,\r\n.and-or-template .ruleContainer:last-of-type:after {\r\n  border: none;\n}\r\n/*Different node representation for first-group conditions*/\n.group-first .and-or-rule:first-child::before {\r\n  border-width: 0px 0px 2px 0px;\n}\n.group-first:before {\r\n  width: 58px;\r\n  padding: 2px 2px;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\n.group-first {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 10px;\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  margin-left: 45px;\r\n  width: 89.2%;\r\n  padding-top: 25px;\n}\n.child-box-shadow {\r\n  box-shadow: 0px 0px 20px 5px var(--child-shadow-color);\r\n  padding-top: 15px;\r\n  margin-bottom: 10px;\n}\n.child-box-shadow .and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -92px;\r\n  height: calc(50% + 92px);\n}\r\n/* .group-condition-btn:before,\r\n.group-condition-btn:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  border: 1px solid #ffaf42;\r\n  width: 0;\r\n  height: 10px;\r\n  left: 37px;\r\n  top: -10px;\r\n}\r\n.group-condition-btn:after {\r\n  top: 28px;\r\n} */\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: #ccc;\r\n  --child-shadow-color: #5cb85c;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 10px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after,\r\n.group-first:before,\r\n.group-first:after {\r\n  position: absolute;\r\n  content: \"\";\r\n  left: -32px;\r\n  width: 31px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\r\n/*Horizontal lines For the first group only*/\n.group-first:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -13px;\r\n  height: calc(50% + 16px);\n}\r\n/* Horizontal lines */\n.and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -76px;\r\n  height: calc(50% + 76px);\n}\r\n/*Vertical lines*/\n.and-or-template:after,\r\n.group-first:after {\r\n  border-width: 0 0 0px 2px;\r\n  top: 50%;\n}\r\n/*No border for last child and outer box*/\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-first .boxContainer:last-child .and-or-template:after,\r\n.and-or-template .ruleContainer:last-of-type:after {\r\n  border: none;\n}\r\n/*Different node representation for first-group conditions*/\n.group-first .and-or-rule:first-child::before {\r\n  border-width: 0px 0px 2px 0px;\n}\n.group-first:before {\r\n  width: 58px;\r\n  padding: 2px 2px;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\r\n  margin-bottom: 5px;\n}\n.group-first {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 10px;\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  margin-left: 45px;\r\n  width: 89.2%;\r\n  padding-top: 25px;\n}\n.child-box-shadow {\r\n  box-shadow: 0px 0px 20px 5px var(--child-shadow-color);\r\n  padding-top: 15px;\r\n  margin-bottom: 10px;\n}\n.child-box-shadow .and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -92px;\r\n  height: calc(50% + 92px);\n}\n.TEST > .and-or-template {\r\n  background-color: yellow;\n}\r\n/* .group-condition-btn:before,\r\n.group-condition-btn:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  border: 1px solid #ffaf42;\r\n  width: 0;\r\n  height: 10px;\r\n  left: 37px;\r\n  top: -10px;\r\n}\r\n.group-condition-btn:after {\r\n  top: 28px;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -38680,6 +38729,21 @@ var render = function() {
                   [_c("i", { staticClass: "fa fa-fw fa-close" })]
                 )
               : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn-dark btn pull-right",
+                attrs: { title: "Enable Child Container Colors" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.enableColor($event)
+                  }
+                }
+              },
+              [_vm._v("Enable Colors")]
+            ),
             _vm._v(" "),
             _vm.showChildButton
               ? _c(

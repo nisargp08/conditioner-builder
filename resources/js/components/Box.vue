@@ -40,6 +40,11 @@
             <i class="fa fa-fw fa-close"></i>
           </button>
           <button
+            @click.prevent="enableColor"
+            class="btn-dark btn pull-right"
+            title="Enable Child Container Colors"
+          >Enable Colors</button>
+          <button
             v-if="showChildButton"
             class="btn btn-xs btn-success add-rule pull-right"
             @click.prevent="showChild"
@@ -119,13 +124,15 @@ export default {
       //Storing nested groups
       groups: [],
       // Fixed color scheme
-      fixColorScheme: ["#fff6e9", "#ffefd7", "#fffef9", "#e3f0ff", "#d2e7ff"],
+      fixColorScheme: ["#A8E6CE", "#DCEDC2", "#FFD3B5", "#FFAAA6", "#FF8C94"],
       //Color Processing Array
-      colorProcessing: [],
+      colorProcessing: ["#A8E6CE", "#DCEDC2", "#FFD3B5", "#FFAAA6", "#FF8C94"],
       //To keep track if logical gate 'AND' is selected or not -- By default set to true
       isAnd: true,
       isGroupAnd: true,
-      isShowChild: false
+      isShowChild: false,
+      colorChanger: false,
+      changeColorTo: ""
     };
   },
   computed: {
@@ -153,6 +160,45 @@ export default {
     }
   },
   methods: {
+    enableColor() {
+      // var index = 0;
+      // console.log("--------------------------------------");
+      // console.log("FIX ARRAY - " + this.fixColorScheme);
+      // if (this.colorProcessing.length <= 0) {
+      //   this.colorProcessing = this.fixColorScheme.slice();
+      // }
+      // console.log("PROCESS ARRAY - " + this.colorProcessing);
+      // console.log("COLOR CHANGE VALUE BEFORE CHANGE : " + this.colorChanger);
+      // this.colorChanger = this.colorProcessing[index];
+      // console.log("COLOR CHANGE VALUE AFTER CHANGE : " + this.colorChanger);
+      // this.colorProcessing.splice(index, 1);
+      // console.log("PROCESS ARRAY - " + this.colorProcessing);
+      // for (let i = 0; i < this.groups.length; i++) {
+      //   var id = this.groups[i];
+      //   console.log(id);
+      //   // $("#" + id).css("background-color", this.changeColorTo);
+      // }
+      this.colorChanger = !this.colorChanger;
+      var index = 0;
+      if (this.colorChanger) {
+        if (this.colorProcessing.length <= 0) {
+          this.colorProcessing = this.fixColorScheme.slice();
+        }
+        this.changeColorTo = this.colorProcessing[index];
+        this.colorProcessing.splice(index, 1);
+        console.log("PROCESS ARRAY - " + this.colorProcessing);
+        for (let i = 0; i < this.groups.length; i++) {
+          var id = this.groups[i];
+          console.log(id);
+          $("#" + id).css("background-color", this.changeColorTo);
+        }
+      } else {
+        for (let i = 0; i < this.groups.length; i++) {
+          var id = this.groups[i];
+          $("#" + id).css("background-color", "white");
+        }
+      }
+    },
     clickAnd() {
       this.isAnd = true;
     },
@@ -289,6 +335,7 @@ export default {
 
 .and-or-offset {
   margin-left: 30px;
+  margin-bottom: 5px;
 }
 .group-first {
   padding: 10px;
@@ -315,6 +362,9 @@ export default {
   border-width: 0 0 2px 2px;
   top: -92px;
   height: calc(50% + 92px);
+}
+.TEST > .and-or-template {
+  background-color: yellow;
 }
 /* .group-condition-btn:before,
 .group-condition-btn:after {
