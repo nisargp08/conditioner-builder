@@ -6942,7 +6942,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: #ccc;\r\n  --child-shadow-color: #5cb85c;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after,\r\n.group-first:before,\r\n.group-first:after {\r\n  position: absolute;\r\n  content: \"\";\r\n  left: -32px;\r\n  width: 31px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\r\n/*Horizontal lines For the first group only*/\n.group-first:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -18px;\r\n  height: calc(50% + 20px);\n}\r\n/* Horizontal lines */\n.and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -60px;\r\n  height: calc(50% + 60px);\n}\r\n/*Vertical lines*/\n.and-or-template:after,\r\n.group-first:after {\r\n  border-width: 0 0 0px 2px;\r\n  top: 50%;\n}\r\n/*No border for last child and outer box*/\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-first .boxContainer:last-of-type .and-or-template:after,\r\n.and-or-template .ruleContainer:last-of-type:after {\r\n  border: none;\n}\r\n/*Different node representation for first-group conditions*/\n.group-first .and-or-rule:first-child::before {\r\n  border-width: 0px 0px 2px 0px;\n}\n.group-first:before {\r\n  width: 58px;\r\n  padding: 2px 2px;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\n.group-first {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  margin-left: 45px;\r\n  width: 89.2%;\r\n  padding-top: 25px;\n}\n.child-box-shadow {\r\n  box-shadow: 0px 0px 20px 5px var(--child-shadow-color);\r\n  padding-top: 15px;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --border-color: #ed6c44;\r\n  --node-color: #ccc;\r\n  --child-shadow-color: #5cb85c;\n}\n.and-or-template {\r\n  /* padding: 10px; */\r\n  padding: 8px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  /* width: 100%; */\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.and-or-template:before,\r\n.and-or-template:after,\r\n.group-first:before,\r\n.group-first:after {\r\n  position: absolute;\r\n  content: \"\";\r\n  left: -32px;\r\n  width: 31px;\r\n  height: calc(50% + 18px);\r\n  border-color: var(--node-color);\r\n  border-style: solid;\n}\r\n/*Horizontal lines For the first group only*/\n.group-first:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -13px;\r\n  height: calc(50% + 16px);\n}\r\n/* Horizontal lines */\n.and-or-template:before {\r\n  border-width: 0 0 2px 2px;\r\n  top: -52px;\r\n  height: calc(50% + 52px);\n}\r\n/*Vertical lines*/\n.and-or-template:after,\r\n.group-first:after {\r\n  border-width: 0 0 0px 2px;\r\n  top: 50%;\n}\r\n/*No border for last child and outer box*/\n.and-or-first:before,\r\n.and-or-first:after,\r\n.and-or-first .boxContainer:last-of-type .and-or-template:after,\r\n.and-or-template .ruleContainer:last-of-type:after {\r\n  border: none;\n}\r\n/*Different node representation for first-group conditions*/\n.group-first .and-or-rule:first-child::before {\r\n  border-width: 0px 0px 2px 0px;\n}\n.group-first:before {\r\n  width: 58px;\r\n  padding: 2px 2px;\n}\n.and-or-top,\r\n.btn-and-or {\r\n  padding: 0;\n}\n.btn-and-or button {\r\n  margin-left: 4px;\n}\n.and-or-offset {\r\n  margin-left: 30px;\n}\n.group-first {\r\n  padding: 10px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  border: 1px solid var(--border-color);\r\n  border-top: 3px solid #d2d6de;\r\n  margin-bottom: 20px;\r\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);\r\n  border-top-color: var(--border-color);\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  margin-left: 45px;\r\n  width: 89.2%;\r\n  padding-top: 25px;\n}\n.child-box-shadow {\r\n  box-shadow: 0px 0px 20px 5px var(--child-shadow-color);\r\n  padding-top: 15px;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -6961,7 +6961,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n:root {\r\n  --node-color: grey;\n}\n.and-or-rule {\r\n  position: relative;\r\n  height: 30px;\r\n  margin-left: 15px !important;\r\n  padding-left: 0;\n}\n.and-or-rule:before,\r\n.and-or-rule:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -1px;\r\n  width: 16px;\r\n  height: calc(50% + 15px);\r\n  border-color: #ccc;\r\n  border-style: solid;\n}\n.and-or-rule:before {\r\n  top: -15px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-rule:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-rule:last-child:after {\r\n  border: none;\n}\r\n", ""]);
+exports.push([module.i, "\n:root {\r\n  --node-color: grey;\n}\n.and-or-rule {\r\n  position: relative;\r\n  height: 30px;\r\n  margin-left: 15px !important;\r\n  padding-left: 0;\n}\n.and-or-rule:before,\r\n.and-or-rule:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: -1px;\r\n  width: 16px;\r\n  height: calc(50% + 10px);\r\n  border-color: #ccc;\r\n  border-style: solid;\n}\n.and-or-rule:before {\r\n  top: -10px;\r\n  border-width: 0 0 2px 2px;\n}\n.and-or-rule:after {\r\n  top: 50%;\r\n  border-width: 0 0 0 2px;\n}\n.and-or-rule:last-child:after {\r\n  border: none;\n}\r\n", ""]);
 
 // exports
 
@@ -38732,32 +38732,7 @@ var render = function() {
     _c("div", { staticClass: "col-xs-3" }, [
       _c(
         "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.firstSelector,
-              expression: "firstSelector"
-            }
-          ],
-          staticClass: "form-control input-sm",
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.firstSelector = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
+        { staticClass: "form-control input-sm" },
         _vm._l(_vm.options.firstSelector, function(option, index) {
           return _c("option", { key: index, domProps: { value: option.id } }, [
             _vm._v(_vm._s(option.name))
@@ -38770,32 +38745,7 @@ var render = function() {
     _c("div", { staticClass: "col-xs-3" }, [
       _c(
         "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.operator,
-              expression: "operator"
-            }
-          ],
-          staticClass: "form-control input-sm",
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.operator = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
+        { staticClass: "form-control input-sm" },
         _vm._l(_vm.options.operator, function(option, index) {
           return _c("option", { key: index, domProps: { value: option.id } }, [
             _vm._v(_vm._s(option.name))
@@ -38808,32 +38758,7 @@ var render = function() {
     _c("div", { staticClass: "col-xs-3" }, [
       _c(
         "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.secondSelector,
-              expression: "secondSelector"
-            }
-          ],
-          staticClass: "form-control input-sm",
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.secondSelector = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
+        { staticClass: "form-control input-sm" },
         _vm._l(_vm.options.secondSelector, function(option, index) {
           return _c("option", { key: index, domProps: { value: option.id } }, [
             _vm._v(_vm._s(option.name))

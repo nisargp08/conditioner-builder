@@ -10884,10 +10884,6 @@ a.text-dark:focus {
   }
 }
 
-* {
-  font-size: 26px;
-}
-
 html,
 body {
   font-family: "Nunito", sans-serif;
@@ -10959,5 +10955,10 @@ body {
   float: left;
   margin-top: 3px;
   padding: 0px;
+}
+
+.form-control {
+  font-size: 1.5rem;
+  border-radius: 1.3rem;
 }
 

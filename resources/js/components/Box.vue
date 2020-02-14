@@ -220,14 +220,14 @@ export default {
 /*Horizontal lines For the first group only*/
 .group-first:before {
   border-width: 0 0 2px 2px;
-  top: -18px;
-  height: calc(50% + 20px);
+  top: -13px;
+  height: calc(50% + 16px);
 }
 /* Horizontal lines */
 .and-or-template:before {
   border-width: 0 0 2px 2px;
-  top: -60px;
-  height: calc(50% + 60px);
+  top: -52px;
+  height: calc(50% + 52px);
 }
 /*Vertical lines*/
 .and-or-template:after,

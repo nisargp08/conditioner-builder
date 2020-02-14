@@ -1,7 +1,7 @@
 <template>
   <div class="form-group and-or-rule col-xs-12">
     <div class="col-xs-3">
-      <select class="form-control input-sm" v-model="firstSelector">
+      <select class="form-control input-sm">
         <option
           v-for="(option,index) in options.firstSelector"
           :key="index"
@@ -10,7 +10,7 @@
       </select>
     </div>
     <div class="col-xs-3">
-      <select class="form-control input-sm" v-model="operator">
+      <select class="form-control input-sm">
         <option
           v-for="(option,index) in options.operator"
           :key="index"
@@ -19,7 +19,7 @@
       </select>
     </div>
     <div class="col-xs-3">
-      <select class="form-control input-sm" v-model="secondSelector">
+      <select class="form-control input-sm">
         <option
           v-for="(option,index) in options.secondSelector"
           :key="index"
@@ -208,13 +208,13 @@ export default {
   position: absolute;
   left: -1px;
   width: 16px;
-  height: calc(50% + 15px);
+  height: calc(50% + 10px);
   border-color: #ccc;
   border-style: solid;
 }
 
 .and-or-rule:before {
-  top: -15px;
+  top: -10px;
   border-width: 0 0 2px 2px;
 }
 
