@@ -208,10 +208,10 @@ export default {
         }
         this.changeColorTo = this.colorProcessing[index];
         this.colorProcessing.splice(index, 1);
-        console.log("PROCESS ARRAY - " + this.colorProcessing);
+        // console.log("PROCESS ARRAY - " + this.colorProcessing);
         for (let i = 0; i < this.groups.length; i++) {
           var id = this.groups[i];
-          console.log(id);
+          // console.log(id);
           $("#" + id).css("background-color", this.changeColorTo);
         }
       } else {

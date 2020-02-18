@@ -4,7 +4,7 @@
       <Box ref="box" v-bind:isFirst="isFirst" v-bind:options="options"></Box>
     </div>
     <div class="effect-container col-xs-8 col-xs-offset-2">
-      <effect :options="options"></effect>
+      <effect ref="effect" :eOptions="eOptions"></effect>
     </div>
   </div>
 </template>
@@ -75,6 +75,79 @@ export default {
           },
           {
             id: 10,
+            name: "Password Tester"
+          }
+        ]
+      },
+      //Dropdown field values for effect
+      eOptions: {
+        firstSelector: [
+          {
+            id: 1,
+            name: "Name"
+          },
+          {
+            id: 2,
+            name: "Age"
+          },
+          {
+            id: 3,
+            name: "Phone"
+          },
+          {
+            id: 4,
+            name: "Email"
+          },
+          {
+            id: 5,
+            name: "Password"
+          }
+        ],
+        operator: [
+          {
+            id: 6,
+            name: "Show"
+          },
+          {
+            id: 7,
+            name: "Hide"
+          },
+          {
+            id: 8,
+            name: "Make Required"
+          },
+          {
+            id: 9,
+            name: "Auto Deselect/Clear Field"
+          },
+          {
+            id: 10,
+            name: "Make Readonly"
+          },
+          {
+            id: 11,
+            name: "Make Editable"
+          }
+        ],
+        secondSelector: [
+          {
+            id: 12,
+            name: "Name Tester"
+          },
+          {
+            id: 13,
+            name: "Age Tester"
+          },
+          {
+            id: 14,
+            name: "Phone Tester"
+          },
+          {
+            id: 15,
+            name: "Email Tester"
+          },
+          {
+            id: 16,
             name: "Password Tester"
           }
         ]
