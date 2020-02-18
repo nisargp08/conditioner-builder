@@ -1,7 +1,7 @@
 <template>
   <div class="effect-component-container col-xs-12">
     <div class="col-xs-5" style="padding: 0">
-      <span class="effect-title">Effect component</span>
+      <span class="effect-title">Condition Effects</span>
     </div>
     <div class="col-xs-7 btn-and-or">
       <button
@@ -84,8 +84,5 @@ export default {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   border-top-color: var(--border-color);
   background-color: rgba(255, 255, 255, 0.9);
-}
-.effect-component-container .and-or-rule:after {
-  border: none;
 }
 </style>

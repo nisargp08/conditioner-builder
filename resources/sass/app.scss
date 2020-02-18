@@ -10,6 +10,7 @@
 //Variables
 $border-color: #ed6c44;
 $group-condition-color: #ffaf42;
+$condition-card-color: rgb(220, 220, 220);
 html,
 body {
     font-family: "Nunito", sans-serif;
@@ -106,4 +107,12 @@ body {
 }
 .effect-add-button {
     font-size: 1rem !important;
+}
+.main-button {
+    font-size: 1.5rem;
+}
+.condition-group {
+    background-color: $condition-card-color;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
