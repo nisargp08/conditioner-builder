@@ -42,7 +42,7 @@
           <button
             @click.prevent="enableColor"
             class="btn-dark btn pull-right"
-            title="Enable Child Container Colors"
+            title="Enable Child Container Colors - Double click to change colors"
           >Enable Colors</button>
           <button
             v-if="showChildButton"
@@ -212,12 +212,16 @@ export default {
         for (let i = 0; i < this.groups.length; i++) {
           var id = this.groups[i];
           // console.log(id);
-          $("#" + id).css("background-color", this.changeColorTo);
+          // $("#" + id).css("background-color", this.changeColorTo);
+          $("#" + id + " > .and-or-template").css(
+            "background-color",
+            this.changeColorTo
+          );
         }
       } else {
         for (let i = 0; i < this.groups.length; i++) {
           var id = this.groups[i];
-          $("#" + id).css("background-color", "white");
+          $("#" + id + " > .and-or-template").css("background-color", "white");
         }
       }
     },

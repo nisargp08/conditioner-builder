@@ -2,9 +2,19 @@
   <div class="condition-group col-xs-8 col-xs-offset-2">
     <div class="col-xs-12" style="margin-top: 20px">
       <Box ref="box" v-bind:isFirst="isFirst" v-bind:options="options"></Box>
-      <div class="effect-container col-xs-12" style="margin-bottom: 20px">
-        <effect ref="effect" :eOptions="eOptions"></effect>
-      </div>
+    </div>
+    <div class="effect-container col-xs-12">
+      <effect ref="effect" :eOptions="eOptions"></effect>
+    </div>
+    <div class="col-xs-12" style="margin-bottom:20px">
+      <button
+        class="btn btn-danger pull-right"
+        title="Delete the condition block"
+        @click.prevent="deleteSelf()"
+      >
+        <i class="fa fa-fw fa-close fa-2x"></i>
+        <span class="deleteText">Delete</span>
+      </button>
     </div>
   </div>
 </template>
@@ -167,13 +177,15 @@ export default {
       this.$refs.box.addRule();
       this.$refs.box.addGroup();
       //   this.$refs.box.addGroup();
+    },
+    deleteSelf() {
+      this.$emit("delete-condition");
     }
   }
 };
 </script>
-
 <style scoped>
-.effect-container {
-  padding: 0;
+.deleteText {
+  font-size: 1.5rem;
 }
 </style>

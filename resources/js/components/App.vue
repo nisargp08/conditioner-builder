@@ -13,6 +13,7 @@
       :key="condition"
       ref="condition"
       :id="condition"
+      @delete-condition="deleteCondition(index)"
     ></condition>
     <div class="col-xs-8 col-xs-offset-2">
       <button
@@ -50,6 +51,9 @@ export default {
     addCondition() {
       var conId = this.generateId();
       this.conditions.push(conId);
+    },
+    deleteCondition(index) {
+      this.conditions.splice(index, 1);
     },
     generateId() {
       return "xxxxxxxxxxxxxxxx".replace(/[xy]/g, function(c) {

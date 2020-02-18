@@ -1936,6 +1936,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -1960,6 +1961,9 @@ __webpack_require__.r(__webpack_exports__);
     addCondition: function addCondition() {
       var conId = this.generateId();
       this.conditions.push(conId);
+    },
+    deleteCondition: function deleteCondition(index) {
+      this.conditions.splice(index, 1);
     },
     generateId: function generateId() {
       return "xxxxxxxxxxxxxxxx".replace(/[xy]/g, function (c) {
@@ -2169,13 +2173,14 @@ __webpack_require__.r(__webpack_exports__);
 
         for (var i = 0; i < this.groups.length; i++) {
           var id = this.groups[i]; // console.log(id);
+          // $("#" + id).css("background-color", this.changeColorTo);
 
-          $("#" + id).css("background-color", this.changeColorTo);
+          $("#" + id + " > .and-or-template").css("background-color", this.changeColorTo);
         }
       } else {
         for (var _i = 0; _i < this.groups.length; _i++) {
           var id = this.groups[_i];
-          $("#" + id).css("background-color", "white");
+          $("#" + id + " > .and-or-template").css("background-color", "white");
         }
       }
     },
@@ -2249,6 +2254,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Box_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Box.vue */ "./resources/js/components/Box.vue");
 /* harmony import */ var _Effect_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Effect.vue */ "./resources/js/components/Effect.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2382,6 +2397,9 @@ __webpack_require__.r(__webpack_exports__);
     init: function init() {
       this.$refs.box.addRule();
       this.$refs.box.addGroup(); //   this.$refs.box.addGroup();
+    },
+    deleteSelf: function deleteSelf() {
+      this.$emit("delete-condition");
     }
   }
 });
@@ -7333,7 +7351,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.effect-container[data-v-7f8a11c0] {\r\n  padding: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.deleteText[data-v-7f8a11c0] {\r\n  font-size: 1.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -38972,7 +38990,12 @@ var render = function() {
           key: condition,
           ref: "condition",
           refInFor: true,
-          attrs: { id: condition }
+          attrs: { id: condition },
+          on: {
+            "delete-condition": function($event) {
+              return _vm.deleteCondition(index)
+            }
+          }
         })
       }),
       _vm._v(" "),
@@ -39139,7 +39162,10 @@ var render = function() {
               "button",
               {
                 staticClass: "btn-dark btn pull-right",
-                attrs: { title: "Enable Child Container Colors" },
+                attrs: {
+                  title:
+                    "Enable Child Container Colors - Double click to change colors"
+                },
                 on: {
                   click: function($event) {
                     $event.preventDefault()
@@ -39294,21 +39320,41 @@ var render = function() {
           _c("Box", {
             ref: "box",
             attrs: { isFirst: _vm.isFirst, options: _vm.options }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "effect-container col-xs-12",
-              staticStyle: { "margin-bottom": "20px" }
-            },
-            [
-              _c("effect", { ref: "effect", attrs: { eOptions: _vm.eOptions } })
-            ],
-            1
-          )
+          })
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "effect-container col-xs-12" },
+        [_c("effect", { ref: "effect", attrs: { eOptions: _vm.eOptions } })],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-xs-12", staticStyle: { "margin-bottom": "20px" } },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger pull-right",
+              attrs: { title: "Delete the condition block" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.deleteSelf()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "fa fa-fw fa-close fa-2x" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "deleteText" }, [_vm._v("Delete")])
+            ]
+          )
+        ]
       )
     ]
   )
