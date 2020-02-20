@@ -4,7 +4,7 @@
       <div class="col-xs-3">
         <select class="form-control input-sm">
           <option
-            v-for="(effect,index) in eOptions.firstSelector"
+            v-for="(effect,index) in eOptions.operator"
             :key="index"
             :value="effect.id"
           >{{ effect.name }}</option>
@@ -13,7 +13,7 @@
       <div class="col-xs-3">
         <select class="form-control input-sm">
           <option
-            v-for="(effect,index) in eOptions.operator"
+            v-for="(effect,index) in eOptions.firstSelector"
             :key="index"
             :value="effect.id"
           >{{ effect.name }}</option>

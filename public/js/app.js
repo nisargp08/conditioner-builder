@@ -39465,7 +39465,7 @@ var render = function() {
         _c(
           "select",
           { staticClass: "form-control input-sm" },
-          _vm._l(_vm.eOptions.firstSelector, function(effect, index) {
+          _vm._l(_vm.eOptions.operator, function(effect, index) {
             return _c(
               "option",
               { key: index, domProps: { value: effect.id } },
@@ -39480,7 +39480,7 @@ var render = function() {
         _c(
           "select",
           { staticClass: "form-control input-sm" },
-          _vm._l(_vm.eOptions.operator, function(effect, index) {
+          _vm._l(_vm.eOptions.firstSelector, function(effect, index) {
             return _c(
               "option",
               { key: index, domProps: { value: effect.id } },
