@@ -39430,7 +39430,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "collapse panel-body",
+              staticClass: "collapse in show panel-body",
               attrs: { id: "body-" + _vm.id }
             },
             [

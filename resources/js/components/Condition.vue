@@ -21,7 +21,7 @@
           </button>
         </span>
       </div>
-      <div class="collapse panel-body" :id="'body-' + id">
+      <div class="collapse in show panel-body" :id="'body-' + id">
         <div class="group-container col-xs-12">
           <Box ref="box" v-bind:isFirst="isFirst" v-bind:options="options"></Box>
         </div>
