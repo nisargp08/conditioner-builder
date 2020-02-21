@@ -1,6 +1,6 @@
 <template>
   <div class="condition-group col-xs-8 col-xs-offset-2">
-    <div class="col-xs-12" style="margin-top: 20px">
+    <div class="group-container col-xs-12" style="margin-top: 20px">
       <Box ref="box" v-bind:isFirst="isFirst" v-bind:options="options"></Box>
     </div>
     <div class="effect-container col-xs-12">

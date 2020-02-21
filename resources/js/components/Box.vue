@@ -1,5 +1,6 @@
 <template>
   <div class="boxContainer">
+    <!-- Group AND/OR Conditions -->
     <div class="outer-groups-condition" v-if="!isFirst">
       <div class="btn-group group-condition-btn" role="group" aria-label="Outer Groups Conditions">
         <button
@@ -69,7 +70,10 @@
         </div>
       </div>
       <!-- Rule Starts -->
-      <div class="ruleContainer" v-bind:class="isFirst ? ['col-xs-12','group-first'] : ''">
+      <div
+        class="ruleContainer"
+        v-bind:class="isFirst ? ['col-xs-12','group-first','first-group-color'] : ''"
+      >
         <Rule
           v-for="(rule,index) in rules"
           ref="rules"
@@ -202,6 +206,7 @@ export default {
       // }
       this.colorChanger = !this.colorChanger;
       var index = 0;
+      var conId;
       if (this.colorChanger) {
         if (this.colorProcessing.length <= 0) {
           this.colorProcessing = this.fixColorScheme.slice();
@@ -211,18 +216,45 @@ export default {
         // console.log("PROCESS ARRAY - " + this.colorProcessing);
         for (let i = 0; i < this.groups.length; i++) {
           var id = this.groups[i];
-          // console.log(id);
+          conId = id;
           // $("#" + id).css("background-color", this.changeColorTo);
           $("#" + id + " > .and-or-template").css(
             "background-color",
             this.changeColorTo
           );
         }
+        var conditionGroupDiv = $("#" + conId)
+          .closest("div.condition-group")
+          .attr("id");
+        //First group color
+        var firstGroupColor = $(
+          "#" +
+            conditionGroupDiv +
+            " > .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template "
+        ).css("background-color");
+        $("#" + conditionGroupDiv + " .first-group-color").css(
+          "background-color",
+          firstGroupColor
+        );
       } else {
         for (let i = 0; i < this.groups.length; i++) {
           var id = this.groups[i];
+          conId = id;
           $("#" + id + " > .and-or-template").css("background-color", "white");
         }
+        var conditionGroupDiv = $("#" + conId)
+          .closest("div.condition-group")
+          .attr("id");
+        //First group color
+        var firstGroupColor = $(
+          "#" +
+            conditionGroupDiv +
+            " > .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template "
+        ).css("background-color");
+        $("#" + conditionGroupDiv + " .first-group-color").css(
+          "background-color",
+          firstGroupColor
+        );
       }
     },
     clickAnd() {
@@ -288,7 +320,7 @@ export default {
 <style>
 :root {
   --border-color: #ed6c44;
-  --node-color: #ccc;
+  --node-color: rgba(202, 184, 184, 0.877);
   --child-shadow-color: #5cb85c;
 }
 .and-or-template {
@@ -389,8 +421,8 @@ export default {
   top: -92px;
   height: calc(50% + 92px);
 }
-.TEST > .and-or-template {
-  background-color: yellow;
+.first-group-color {
+  background-color: "";
 }
 /* .group-condition-btn:before,
 .group-condition-btn:after {

@@ -203,7 +203,7 @@ export default {
 
 <style>
 :root {
-  --node-color: grey;
+  --node-color: rgba(202, 184, 184, 0.877);
 }
 
 .and-or-rule {
@@ -220,7 +220,7 @@ export default {
   left: -1px;
   width: 16px;
   height: calc(50% + 10px);
-  border-color: #ccc;
+  border-color: var(--node-color);
   border-style: solid;
 }
 
