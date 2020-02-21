@@ -1,20 +1,44 @@
 <template>
-  <div class="condition-group col-xs-8 col-xs-offset-2">
-    <div class="group-container col-xs-12" style="margin-top: 20px">
-      <Box ref="box" v-bind:isFirst="isFirst" v-bind:options="options"></Box>
-    </div>
-    <div class="effect-container col-xs-12">
-      <effect ref="effect" :eOptions="eOptions"></effect>
-    </div>
-    <div class="col-xs-12" style="margin-bottom:20px">
-      <button
-        class="btn btn-danger pull-right"
-        title="Delete the condition block"
-        @click.prevent="deleteSelf()"
-      >
-        <i class="fa fa-fw fa-close fa-2x"></i>
-        <span class="deleteText">Delete</span>
-      </button>
+  <div class="condition-group col-xs-8 col-xs-offset-2" :id="id">
+    <div class="panel panel-default" style="margin-top: 20px">
+      <div class="panel-heading">
+        <span class="collapse-caret">
+          <button
+            data-toggle="collapse"
+            aria-controls="condition-collapse"
+            aria-expanded="false"
+            :href="'#body-' + id"
+            :class="[!isCollapsed ? 'fa fa-chevron-circle-down' : 'fa fa-chevron-circle-right']"
+            :title="[!isCollapsed ? 'Collapse the condition container' : 'Show collapsed condition container']"
+            @click.prevent="collapseClicked"
+          ></button>
+        </span>
+        <span class="vertical-divider"></span>
+        <span class="condition-header">Condition - {{cnt}}</span>
+        <span class="condition-delete float-right">
+          <button title="Delete condition" @click.prevent="deleteSelf()">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </span>
+      </div>
+      <div class="collapse panel-body" :id="'body-' + id">
+        <div class="group-container col-xs-12">
+          <Box ref="box" v-bind:isFirst="isFirst" v-bind:options="options"></Box>
+        </div>
+        <div class="effect-container col-xs-12">
+          <effect ref="effect" :eOptions="eOptions"></effect>
+        </div>
+        <div class="col-xs-12" style="margin-bottom:20px">
+          <button
+            class="btn btn-danger pull-right"
+            title="Delete the condition block"
+            @click.prevent="deleteSelf()"
+          >
+            <i class="fa fa-fw fa-close fa-2x"></i>
+            <span class="deleteText">Delete</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +54,7 @@ export default {
     Box,
     Effect
   },
+  props: ["cnt", "id"],
   data() {
     return {
       //Dropdown field values object
@@ -163,7 +188,8 @@ export default {
         ]
       },
       //Indicates if the div is first group or not
-      isFirst: true
+      isFirst: true,
+      isCollapsed: false
     };
   },
   mounted() {
@@ -176,7 +202,9 @@ export default {
     init() {
       this.$refs.box.addRule();
       this.$refs.box.addGroup();
-      //   this.$refs.box.addGroup();
+    },
+    collapseClicked() {
+      this.isCollapsed = !this.isCollapsed;
     },
     deleteSelf() {
       this.$emit("delete-condition");
@@ -187,5 +215,38 @@ export default {
 <style scoped>
 .deleteText {
   font-size: 1.5rem;
+}
+.panel-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-left: 0px;
+}
+.vertical-divider {
+  border-left: 1px solid grey;
+  padding-right: 8px;
+}
+.collapse-caret {
+  padding-left: 5px;
+}
+.collapse-caret button,
+.collapse-caret button:focus,
+.collapse-caret button:active {
+  border: none;
+}
+.collapse-caret button {
+  width: 50px;
+  background-color: white;
+}
+.condition-delete {
+  color: red;
+  background-color: gainsboro;
+  border-radius: 5px;
+}
+.condition-delete button {
+  background-color: gainsboro;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: none;
 }
 </style>

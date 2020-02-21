@@ -13,6 +13,7 @@
       :key="condition"
       ref="condition"
       :id="condition"
+      :cnt="index + 1"
       @delete-condition="deleteCondition(index)"
     ></condition>
     <div class="col-xs-8 col-xs-offset-2">

@@ -230,7 +230,7 @@ export default {
         var firstGroupColor = $(
           "#" +
             conditionGroupDiv +
-            " > .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template "
+            " .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template "
         ).css("background-color");
         $("#" + conditionGroupDiv + " .first-group-color").css(
           "background-color",
@@ -249,7 +249,7 @@ export default {
         var firstGroupColor = $(
           "#" +
             conditionGroupDiv +
-            " > .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template "
+            " .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template "
         ).css("background-color");
         $("#" + conditionGroupDiv + " .first-group-color").css(
           "background-color",

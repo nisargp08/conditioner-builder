@@ -1937,6 +1937,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2185,7 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
 
         var conditionGroupDiv = $("#" + conId).closest("div.condition-group").attr("id"); //First group color
 
-        var firstGroupColor = $("#" + conditionGroupDiv + " > .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template ").css("background-color");
+        var firstGroupColor = $("#" + conditionGroupDiv + " .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template ").css("background-color");
         $("#" + conditionGroupDiv + " .first-group-color").css("background-color", firstGroupColor);
       } else {
         for (var _i = 0; _i < this.groups.length; _i++) {
@@ -2196,7 +2197,7 @@ __webpack_require__.r(__webpack_exports__);
 
         var conditionGroupDiv = $("#" + conId).closest("div.condition-group").attr("id"); //First group color
 
-        var firstGroupColor = $("#" + conditionGroupDiv + " > .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template ").css("background-color");
+        var firstGroupColor = $("#" + conditionGroupDiv + " .group-container > .boxContainer > .and-or-first > .boxContainer > .and-or-template ").css("background-color");
         $("#" + conditionGroupDiv + " .first-group-color").css("background-color", firstGroupColor);
       }
     },
@@ -2291,6 +2292,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // Rule - if conditions
 //Group - Nested condition boxes
 
@@ -2301,6 +2326,7 @@ __webpack_require__.r(__webpack_exports__);
     Box: _Box_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Effect: _Effect_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  props: ["cnt", "id"],
   data: function data() {
     return {
       //Dropdown field values object
@@ -2400,7 +2426,8 @@ __webpack_require__.r(__webpack_exports__);
         }]
       },
       //Indicates if the div is first group or not
-      isFirst: true
+      isFirst: true,
+      isCollapsed: false
     };
   },
   mounted: function mounted() {
@@ -2412,7 +2439,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     init: function init() {
       this.$refs.box.addRule();
-      this.$refs.box.addGroup(); //   this.$refs.box.addGroup();
+      this.$refs.box.addGroup();
+    },
+    collapseClicked: function collapseClicked() {
+      this.isCollapsed = !this.isCollapsed;
     },
     deleteSelf: function deleteSelf() {
       this.$emit("delete-condition");
@@ -7367,7 +7397,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.deleteText[data-v-7f8a11c0] {\r\n  font-size: 1.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.deleteText[data-v-7f8a11c0] {\r\n  font-size: 1.5rem;\n}\n.panel-heading[data-v-7f8a11c0] {\r\n  font-size: 2rem;\r\n  font-weight: 600;\r\n  padding-left: 0px;\n}\n.vertical-divider[data-v-7f8a11c0] {\r\n  border-left: 1px solid grey;\r\n  padding-right: 8px;\n}\n.collapse-caret[data-v-7f8a11c0] {\r\n  padding-left: 5px;\n}\n.collapse-caret button[data-v-7f8a11c0],\r\n.collapse-caret button[data-v-7f8a11c0]:focus,\r\n.collapse-caret button[data-v-7f8a11c0]:active {\r\n  border: none;\n}\n.collapse-caret button[data-v-7f8a11c0] {\r\n  width: 50px;\r\n  background-color: white;\n}\n.condition-delete[data-v-7f8a11c0] {\r\n  color: red;\r\n  background-color: gainsboro;\r\n  border-radius: 5px;\n}\n.condition-delete button[data-v-7f8a11c0] {\r\n  background-color: gainsboro;\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n  border-radius: 5px;\r\n  border: none;\n}\r\n", ""]);
 
 // exports
 
@@ -39006,7 +39036,7 @@ var render = function() {
           key: condition,
           ref: "condition",
           refInFor: true,
-          attrs: { id: condition },
+          attrs: { id: condition, cnt: index + 1 },
           on: {
             "delete-condition": function($event) {
               return _vm.deleteCondition(index)
@@ -39329,50 +39359,134 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "condition-group col-xs-8 col-xs-offset-2" },
+    {
+      staticClass: "condition-group col-xs-8 col-xs-offset-2",
+      attrs: { id: _vm.id }
+    },
     [
       _c(
         "div",
         {
-          staticClass: "group-container col-xs-12",
+          staticClass: "panel panel-default",
           staticStyle: { "margin-top": "20px" }
         },
         [
-          _c("Box", {
-            ref: "box",
-            attrs: { isFirst: _vm.isFirst, options: _vm.options }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "effect-container col-xs-12" },
-        [_c("effect", { ref: "effect", attrs: { eOptions: _vm.eOptions } })],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-xs-12", staticStyle: { "margin-bottom": "20px" } },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger pull-right",
-              attrs: { title: "Delete the condition block" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.deleteSelf()
+          _c("div", { staticClass: "panel-heading" }, [
+            _c("span", { staticClass: "collapse-caret" }, [
+              _c("button", {
+                class: [
+                  !_vm.isCollapsed
+                    ? "fa fa-chevron-circle-down"
+                    : "fa fa-chevron-circle-right"
+                ],
+                attrs: {
+                  "data-toggle": "collapse",
+                  "aria-controls": "condition-collapse",
+                  "aria-expanded": "false",
+                  href: "#body-" + _vm.id,
+                  title: [
+                    !_vm.isCollapsed
+                      ? "Collapse the condition container"
+                      : "Show collapsed condition container"
+                  ]
+                },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.collapseClicked($event)
+                  }
                 }
-              }
+              })
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "vertical-divider" }),
+            _vm._v(" "),
+            _c("span", { staticClass: "condition-header" }, [
+              _vm._v("Condition - " + _vm._s(_vm.cnt))
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "condition-delete float-right" }, [
+              _c(
+                "button",
+                {
+                  attrs: { title: "Delete condition" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.deleteSelf()
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-trash",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse panel-body",
+              attrs: { id: "body-" + _vm.id }
             },
             [
-              _c("i", { staticClass: "fa fa-fw fa-close fa-2x" }),
+              _c(
+                "div",
+                { staticClass: "group-container col-xs-12" },
+                [
+                  _c("Box", {
+                    ref: "box",
+                    attrs: { isFirst: _vm.isFirst, options: _vm.options }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("span", { staticClass: "deleteText" }, [_vm._v("Delete")])
+              _c(
+                "div",
+                { staticClass: "effect-container col-xs-12" },
+                [
+                  _c("effect", {
+                    ref: "effect",
+                    attrs: { eOptions: _vm.eOptions }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-xs-12",
+                  staticStyle: { "margin-bottom": "20px" }
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger pull-right",
+                      attrs: { title: "Delete the condition block" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.deleteSelf()
+                        }
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-fw fa-close fa-2x" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "deleteText" }, [
+                        _vm._v("Delete")
+                      ])
+                    ]
+                  )
+                ]
+              )
             ]
           )
         ]
